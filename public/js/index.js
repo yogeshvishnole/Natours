@@ -14,7 +14,7 @@ const userDataForm = document.querySelector('.form-user-data');
 const userPasswordForm = document.querySelector('.form-user-password');
 const bookBtn = document.getElementById('book-tour');
 // Values
-console.log(document.querySelector('.nav__el--logout'));
+// console.log(document.querySelector('.nav__el--logout'));
 
 // Delegation
 if (mapBox) {

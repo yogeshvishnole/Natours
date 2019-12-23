@@ -11,6 +11,7 @@ const mongoSanitize = require('express-mongo-sanitize');
 const xss = require('xss-clean');
 const hpp = require('hpp');
 const cookieParser = require('cookie-parser');
+const compression = require('compression');
 
 const globalErrorController = require('./controller/errorController');
 const AppError = require('./utils/appError');
@@ -82,7 +83,7 @@ if (process.env.NODE_ENV === 'development')
   app.use(
     morgan('dev')
   ); /**morgan return a function like (req,res,next)=>{--something--} */
-
+app.use(compression());
 //?? MY VERY OWN MIDDLEWARES
 
 /**Middleware always called in a sequence as they defined in the code

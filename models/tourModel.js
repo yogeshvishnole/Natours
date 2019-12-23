@@ -183,12 +183,12 @@ tourSchema.pre(/^find/, function(next) {
   next();
 });
 
-tourSchema.post(/^find/, function(docs, next) {
-  // this.end = Date.now();
-  console.log(` query execution time is : ${Date.now() - this.start}`);
-  // console.log(docs);
-  next();
-});
+// tourSchema.post(/^find/, function(docs, next) {
+//   // this.end = Date.now();
+//   console.log(` query execution time is : ${Date.now() - this.start}`);
+//   // console.log(docs);
+//   next();
+// });
 
 // tourSchema.pre('aggregate', function(next) {
 //   this.pipeline().unshift({ $match: { secretTour: { $ne: true } } });

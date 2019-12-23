@@ -112,7 +112,7 @@ exports.protect = catchAsync(async (req, res, next) => {
     process.env.JWT_SECRET_KEY
   );
 
-  console.log(decoded);
+  // console.log(decoded);
 
   // 3.Check if user still exists
 
@@ -143,7 +143,7 @@ exports.protect = catchAsync(async (req, res, next) => {
 exports.isLoggedIn = async (req, res, next) => {
   // 1. Getting token and check if it's there
   try {
-    console.log(req.cookies.jwt);
+    // console.log(req.cookies.jwt);
     if (req.cookies.jwt) {
       // 2.Verification of token
 
@@ -167,7 +167,7 @@ exports.isLoggedIn = async (req, res, next) => {
 
       //GRANT ACCESS TO PROTECTD ROUTE
       res.locals.user = currentUser;
-      
+
       return next();
     }
   } catch (err) {
@@ -205,7 +205,7 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
     )}/api/v1/users/resetPassword/${resetToken}`;
 
     const ema = await new Email(user, resetUrl).sendPasswordReset();
-    console.log(ema);
+    // console.log(ema);
 
     res.status(200).json({
       status: 'success',
@@ -233,7 +233,7 @@ exports.resetPassword = catchAsync(async (req, res, next) => {
     .update(req.params.token)
     .digest('hex');
 
-  console.log(req.params.token);
+  // console.log(req.params.token);
 
   const user = await User.findOne({
     passwordResetToken: hashedToken,
